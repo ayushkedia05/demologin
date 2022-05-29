@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "build": "cd userlogin && npm run build",
-    "install-client": "cd userlogin && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+   
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix usermodel npm run build --prefix usermodel",
     "start-dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
