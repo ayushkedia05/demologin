@@ -2,6 +2,7 @@ const express =require('express');
 const morgan=require('morgan');
 const userRoutes =require('./routes/userroutes.js')
 let cors=require("cors");
+const cookieParser = require('cookie-parser');
 
 const app=express();
 app.use(cors());
@@ -11,6 +12,9 @@ if(process.env.NODE_ENV==='development')
 {
     app.use(morgan('dev'));
 }
+
+app.use(cookieParser());
+
 
 app.use(express.json());
 

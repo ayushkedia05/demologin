@@ -1,13 +1,13 @@
 const User=require('../models/usermodel.js');
 const jwt=require('jsonwebtoken')
+const Apperror=require('../appError.js');
 
 
 
 const Signtoken=(id)=>{
-    return jwt.sign({id:id},process.env.JWT_SECRET,{
-
-        expiresIn:process.env.JWT_EXPRES_IN
-    });
+  return jwt.sign({id:id},process.env.JWT_SECRET,{
+    expiresIn:process.env.JWT_EXPIRES_IN  
+});
 }
 
 
@@ -64,6 +64,8 @@ console.log(correct);
       console.log(correct);
 console.log('sffs');
       const token=Signtoken(user._id);
+       console.log(token);
+      // localStorage.setItem('token',token);
       res.status(200).json({
         status:'success',
         token
